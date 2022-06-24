@@ -1,0 +1,14 @@
+﻿@model IEnumerable<InventoryApp.Models.Category>
+
+
+<h1>All Categories</h1>
+<a asp-controller="Categories" asp-action="AddCategory">Add new Category</a>
+
+@foreach (var category in @Model) {
+    <div>
+        <p>ID: @category.Id</p>
+        <p>Name: @category.Name</p>
+        <p>Description: @category.Description</p>
+    </div>
+    <hr />
+}

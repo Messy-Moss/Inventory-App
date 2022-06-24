@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Types\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="inventory.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

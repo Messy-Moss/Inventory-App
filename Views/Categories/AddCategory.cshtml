@@ -1,0 +1,17 @@
+﻿@model InventoryApp.Models.Category
+
+<form method="post" asp-action="AddCategory">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+    </div>
+    
+    <div>
+        <input type="submit" value="add" />
+    </div>
+</form>

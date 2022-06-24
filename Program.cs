@@ -1,5 +1,6 @@
 using InventoryApp.Data;
 using InventoryApp.Repository;
+using InventoryApp.Types;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ string connString = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<AppDbContext>((DbContextOptionsBuilder builder) => builder.UseSqlite(connString));
 
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<ICategoriesRepository, CategoryRepository>();
 
 var app = builder.Build();
 
