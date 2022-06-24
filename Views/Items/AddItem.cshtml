@@ -1,0 +1,32 @@
+﻿@model InventoryApp.Models.Item
+
+<form method="post" asp-action="AddItem">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+    </div>
+
+    <div>
+        <label asp-for="CategoryId"></label>
+        <input asp-for="CategoryId" />
+    </div>
+
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+
+    <div>
+        <label asp-for="NumInStock"></label>
+        <input asp-for="NumInStock" />
+    </div>
+
+    <div>
+        <input type="submit" value="add" />
+    </div>
+</form>
