@@ -1,8 +1,36 @@
-﻿@{
+﻿@model IEnumerable<InventoryApp.Models.Item>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Chosen Items</h1>
+
+@if (@Model != null) {
+    @foreach (var item in @Model) {
+    <div>
+        <p>ID: @item.Id</p>
+        <p>Name: @item.Name</p>
+        <p>Description: @item.Description</p>
+        <p>Price: $@item.Price</p>
+        <p>Number in Stock: @item.NumInStock</p>
+        <p>Category: @item.Category.Name</p>
+    </div>
+    <hr />
+    }
+}
+
+
+
+<h1>Choose</h1>
+
+<hr />
+<div>
+    <h3>Choose CPU</h3>
+    <a asp-action="GetItemsByCategory" asp-controller="Items" asp-route-catId="1">link</a>
+</div>
+
+<hr />
+<div>
+    <h3>Choose Memory</h3>
+    <a asp-action="GetItemsByCategory" asp-controller="Items" asp-route-catId="2">link</a>
 </div>

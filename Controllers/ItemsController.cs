@@ -9,7 +9,6 @@ namespace InventoryApp.Controllers {
         public ItemsController(IItemRepository repo) {
             _repo = repo;
         }
-
         public IActionResult AddItem() {
             return View();
         }
@@ -19,9 +18,14 @@ namespace InventoryApp.Controllers {
             Item createdItem = await _repo.AddItem(item);
             return RedirectToAction("Index");
         }
-
         public async Task<IActionResult> Index() {
             IEnumerable<Item> items = await _repo.GetItems();
+            return View(items);
+        }
+
+        public async Task<IActionResult> GetItemsByCategory([FromQuery] int catId) {
+            IEnumerable<Item> items = await _repo.GetItemsByCategoryId(catId);
+
             return View(items);
         }
     }

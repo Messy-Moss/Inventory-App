@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<InventoryApp.Models.Item>
 
-<h1>All Items</h1>
+<h1>Items By Category</h1>
+<p># of items: @Model.Count()</p>
 <a asp-controller="Items" asp-action="AddItem">Add new Item</a>
-
+<form method="post">
 @foreach (var item in @Model) {
+
     <div>
         <p>ID: @item.Id</p>
         <p>Name: @item.Name</p>
@@ -11,6 +13,8 @@
         <p>Price: $@item.Price</p>
         <p>Number in Stock: @item.NumInStock</p>
         <p>Category: @item.Category.Name</p>
+        <a asp-action="SetCookieForItem" asp-controller="Home" asp-route-itemId="@item.Id">Choose this one</a>
     </div>
     <hr />
 }
+</form>

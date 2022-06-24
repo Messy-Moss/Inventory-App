@@ -66,5 +66,20 @@ namespace InventoryApp.Repository {
 
             return foundItems;
         }
+
+        public async Task<IEnumerable<Item>> GetItemsByIds(IEnumerable<int> ids) {
+            //var selected = users.Where(u => new[] { "Admin", "User", "Limited" }.Contains(u.User_Rights));
+            var foundItems = await _ctx.Items
+                .AsNoTracking()
+                .Include(i => i.Category)
+                .Where(i => ids.Contains(i.Id))
+                .ToArrayAsync();
+
+            if (foundItems == null || foundItems.Length == 0)
+                throw new ArgumentException("Item with given category name does not exist");
+
+            return foundItems;
+
+        }
     }
 }
